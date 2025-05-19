@@ -1,9 +1,9 @@
+import { Link } from "expo-router";
 import {
   Dimensions,
   StyleSheet,
   Text,
-  TouchableOpacity,
-  View,
+  View
 } from "react-native";
 
 type LandingContentProps = {
@@ -39,10 +39,8 @@ export default function LandingContent({
           />
         ))}
       </View>
-
-      <TouchableOpacity style={styles.button} onPress={handleButton}>
-        <Text style={styles.buttonText}>Getting Started</Text>
-      </TouchableOpacity>
+      <Link href={"/setup"} style={styles.button}> Getting started
+      </Link>
     </View>
   );
 }
@@ -83,6 +81,7 @@ const styles = StyleSheet.create({
     width: "80%",
     paddingVertical: 14,
     borderRadius: 30,
+    textAlign: 'center',
   },
   buttonText: {
     color: "#FFF",

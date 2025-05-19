@@ -1,28 +1,19 @@
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import React, { useState } from 'react';
-import {
-    Dimensions,
-    StyleSheet,
-    View,
-} from 'react-native';
-import LandingContent from '../components/landing-content';
+import { useRouter } from "expo-router";
+import React, { useState } from "react";
+import { Dimensions, StyleSheet, View } from "react-native";
+
+import LandingContent from "../components/landing-content";
 import WeavyHeader from "../components/weavy-header";
-import { RootStackParamList } from '../features/send/types/navigation';
-type OnboardingNavProp = StackNavigationProp<
-  RootStackParamList,
-  'Onboarding'
->;
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
-const OnboardingScreen: React.FC = () => {
-  const navigation = useNavigation<OnboardingNavProp>();
-  const [step, setStep] = useState<number>(0);
+export default function OnboardingScreen() {
+  const router = useRouter();
+  const [step, setStep] = useState(0);
   const totalSteps = 4;
 
   const handleButton = () => {
-    navigation.replace("Setup");
+    router.push("/setup");
   };
 
   return (
@@ -35,9 +26,7 @@ const OnboardingScreen: React.FC = () => {
       />
     </View>
   );
-};
-
-export default OnboardingScreen;
+}
 
 const styles = StyleSheet.create({
   container: {

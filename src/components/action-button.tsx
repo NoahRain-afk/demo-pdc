@@ -1,11 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-type ActionButtonProps = {
+type Props = {
   tab: string;
   onAction: () => void;
 };
 
-export default function ActionButton({ tab, onAction }: ActionButtonProps) {
+export default function ActionButton({ tab, onAction }: Props) {
   return (
     <TouchableOpacity
       style={styles.button}

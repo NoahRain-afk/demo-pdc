@@ -8,7 +8,7 @@ const { width } = Dimensions.get('window');
 
 const PIN_LENGTH = 6;
 
-const PinSetupScreen = () => {
+export default function PinSetupScreen () {
   const [pin, setPin] = useState('');
   const router = useRouter();
 
@@ -22,7 +22,7 @@ const PinSetupScreen = () => {
 
   const handleContinue = () => {
     if (pin.length === PIN_LENGTH) {
-      router.replace('/Exchange');
+      router.push('/(home)/home');
     }
   };
 
@@ -46,7 +46,6 @@ const PinSetupScreen = () => {
   );
 };
 
-export default PinSetupScreen;
 
 const styles = StyleSheet.create({
   container: {
